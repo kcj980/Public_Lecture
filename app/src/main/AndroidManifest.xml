@@ -27,7 +27,7 @@
 
         <!-- 팝업 Activity -->
         <activity android:name=".PopupSearchActivity" android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".ProgressDialog" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".LoadingActivity" android:theme="@android:style/Theme.Dialog"/>
         <activity
             android:name=".Loading"
             android:exported="true">
@@ -46,10 +46,8 @@
             </intent-filter>
         </receiver>
 
-
         <activity android:name=".MainActivity"/>
         <activity android:name=".PopupInformationActivity"/>
-        <activity android:name=".PopupFavoritesInformActivity"/>
         <activity android:name=".AlarmActivity"/>
 
     </application>

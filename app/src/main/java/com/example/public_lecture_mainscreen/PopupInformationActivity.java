@@ -41,6 +41,7 @@ public class PopupInformationActivity extends AppCompatActivity implements OnMap
     public static NaverMap naverMap;
     public double mLat=0;
     public double mLng=0;
+    int InformationIdex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,54 +78,99 @@ public class PopupInformationActivity extends AppCompatActivity implements OnMap
         dataCreate = findViewById(R.id.I_text21);
         web = findViewById(R.id.I_text22);
 
-        int nowPage = ((MainActivity)MainActivity.context).nowPage;
-        List<Course> searchResult = ((MainActivity)MainActivity.context).searchResult;
-        int pageIndex = (nowPage - 1) * 10; //페이지인덱스
-        int touchIndex = ((MainActivity)MainActivity.context).touchIndex;//터치인덱스
+        InformationIdex = ((MainActivity)MainActivity.context).InformationIdex;
+        if(InformationIdex == 1){//메인화면 강좌이름 눌렸을 때
+            int nowPage = ((MainActivity)MainActivity.context).nowPage;
+            List<Course> searchResult = ((MainActivity)MainActivity.context).searchResult;
+            int pageIndex = (nowPage - 1) * 10; //페이지인덱스
+            int touchIndex = ((MainActivity)MainActivity.context).touchIndex;//터치인덱스
+
+            lctreNm.setText(searchResult.get(pageIndex+touchIndex).getLctreNm());
+            instrNM.setText(searchResult.get(pageIndex+touchIndex).getInstrctrNm());
+            startDay.setText(searchResult.get(pageIndex+touchIndex).getEdcStartDay());
+            endDay.setText(searchResult.get(pageIndex+touchIndex).getEdcEndDay());
+            startTime.setText(searchResult.get(pageIndex+touchIndex).getEdcStartTime());
+            endTime.setText(searchResult.get(pageIndex+touchIndex).getEdcColseTime());
+            naeyong.setText(searchResult.get(pageIndex+touchIndex).getLctreCo());
+            target.setText(searchResult.get(pageIndex+touchIndex).getEdcTrgetType());
+            edcHow.setText(searchResult.get(pageIndex+touchIndex).getEdcMthType());
+            weekDay.setText(searchResult.get(pageIndex+touchIndex).getOperDay());
+            edcPlace.setText(searchResult.get(pageIndex+touchIndex).getEdcPlace());
+            peopleCount.setText(searchResult.get(pageIndex+touchIndex).getPsncpa());
+            Fee.setText(searchResult.get(pageIndex+touchIndex).getLctreCost());
+            RoadAddress.setText(searchResult.get(pageIndex+touchIndex).getEdcRdnmadr());
+            institution.setText(searchResult.get(pageIndex+touchIndex).getOperInstitutionNm());
+            tel.setText(searchResult.get(pageIndex+touchIndex).getOperPhoneNumber());
+            rceptStart.setText(searchResult.get(pageIndex+touchIndex).getRceptStartDate());
+            rceptEnd.setText(searchResult.get(pageIndex+touchIndex).getRceptEndDate());
+            rceptHow.setText(searchResult.get(pageIndex+touchIndex).getRceptMthType());
+            pickHow.setText(searchResult.get(pageIndex+touchIndex).getSlctnMthType());
+            dataCreate.setText(searchResult.get(pageIndex+touchIndex).getReferenceDate());
+            web.setText(searchResult.get(pageIndex+touchIndex).getHompageUrl());
+            weblink = searchResult.get(pageIndex+touchIndex).getHompageUrl();//웹 주소 저장
+
+            final Geocoder g = new Geocoder(this);
+
+            String address = searchResult.get(pageIndex+touchIndex).getEdcRdnmadr();
 
 
-        lctreNm.setText(searchResult.get(pageIndex+touchIndex).getLctreNm());
-        instrNM.setText(searchResult.get(pageIndex+touchIndex).getInstrctrNm());
-        startDay.setText(searchResult.get(pageIndex+touchIndex).getEdcStartDay());
-        endDay.setText(searchResult.get(pageIndex+touchIndex).getEdcEndDay());
-        startTime.setText(searchResult.get(pageIndex+touchIndex).getEdcStartTime());
-        endTime.setText(searchResult.get(pageIndex+touchIndex).getEdcColseTime());
-        naeyong.setText(searchResult.get(pageIndex+touchIndex).getLctreCo());
-        target.setText(searchResult.get(pageIndex+touchIndex).getEdcTrgetType());
-        edcHow.setText(searchResult.get(pageIndex+touchIndex).getEdcMthType());
-        weekDay.setText(searchResult.get(pageIndex+touchIndex).getOperDay());
-        edcPlace.setText(searchResult.get(pageIndex+touchIndex).getEdcPlace());
-        peopleCount.setText(searchResult.get(pageIndex+touchIndex).getPsncpa());
-        Fee.setText(searchResult.get(pageIndex+touchIndex).getLctreCost());
-        RoadAddress.setText(searchResult.get(pageIndex+touchIndex).getEdcRdnmadr());
-        institution.setText(searchResult.get(pageIndex+touchIndex).getOperInstitutionNm());
-        tel.setText(searchResult.get(pageIndex+touchIndex).getOperPhoneNumber());
-        rceptStart.setText(searchResult.get(pageIndex+touchIndex).getRceptStartDate());
-        rceptEnd.setText(searchResult.get(pageIndex+touchIndex).getRceptEndDate());
-        rceptHow.setText(searchResult.get(pageIndex+touchIndex).getRceptMthType());
-        pickHow.setText(searchResult.get(pageIndex+touchIndex).getSlctnMthType());
-        dataCreate.setText(searchResult.get(pageIndex+touchIndex).getReferenceDate());
-        web.setText(searchResult.get(pageIndex+touchIndex).getHompageUrl());
+            try {
+                List<Address> mResultLocation = g.getFromLocationName(address,1);
+                mLat = mResultLocation.get(0).getLatitude();
+                mLng = mResultLocation.get(0).getLongitude();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.d("GeoCoder", "주소변환 실패" + e);
+            }
 
-        weblink = searchResult.get(pageIndex+touchIndex).getHompageUrl();//웹 주소 저장
+            mapView = findViewById(R.id.map_fragment);
+            mapView.getMapAsync(this);
 
-        final Geocoder g = new Geocoder(this);
-
-        String address = searchResult.get(pageIndex+touchIndex).getEdcRdnmadr();
-
-
-        try {
-            List<Address> mResultLocation = g.getFromLocationName(address,1);
-            mLat = mResultLocation.get(0).getLatitude();
-            mLng = mResultLocation.get(0).getLongitude();
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.d("GeoCoder", "주소변환 실패" + e);
         }
+        else{//즐겨찾기 강좌이름 눌렸을 때
+            int favoritesIndex = ((MainActivity)MainActivity.context).favoritesIndex;
+            List<Favorites> favoritesList = ((MainActivity)MainActivity.context).mFavoritesDao.getFavoritesAll();
 
-        mapView = findViewById(R.id.map_fragment);
-        mapView.getMapAsync(this);
+            lctreNm.setText(favoritesList.get(favoritesIndex).getLctreNm());
+            instrNM.setText(favoritesList.get(favoritesIndex).getInstrctrNm());
+            startDay.setText(favoritesList.get(favoritesIndex).getEdcStartDay());
+            endDay.setText(favoritesList.get(favoritesIndex).getEdcEndDay());
+            startTime.setText(favoritesList.get(favoritesIndex).getEdcStartTime());
+            endTime.setText(favoritesList.get(favoritesIndex).getEdcColseTime());
+            naeyong.setText(favoritesList.get(favoritesIndex).getLctreCo());
+            target.setText(favoritesList.get(favoritesIndex).getEdcTrgetType());
+            edcHow.setText(favoritesList.get(favoritesIndex).getEdcMthType());
+            weekDay.setText(favoritesList.get(favoritesIndex).getOperDay());
+            edcPlace.setText(favoritesList.get(favoritesIndex).getEdcPlace());
+            peopleCount.setText(favoritesList.get(favoritesIndex).getPsncpa());
+            Fee.setText(favoritesList.get(favoritesIndex).getLctreCost());
+            RoadAddress.setText(favoritesList.get(favoritesIndex).getEdcRdnmadr());
+            institution.setText(favoritesList.get(favoritesIndex).getOperInstitutionNm());
+            tel.setText(favoritesList.get(favoritesIndex).getOperPhoneNumber());
+            rceptStart.setText(favoritesList.get(favoritesIndex).getRceptStartDate());
+            rceptEnd.setText(favoritesList.get(favoritesIndex).getRceptEndDate());
+            rceptHow.setText(favoritesList.get(favoritesIndex).getRceptMthType());
+            pickHow.setText(favoritesList.get(favoritesIndex).getSlctnMthType());
+            dataCreate.setText(favoritesList.get(favoritesIndex).getReferenceDate());
+            web.setText(favoritesList.get(favoritesIndex).getHompageUrl());
 
+            weblink = favoritesList.get(favoritesIndex).getHompageUrl();//웹 주소 저장
+            final Geocoder g = new Geocoder(this);
+            String address = favoritesList.get(favoritesIndex).getEdcRdnmadr();
+
+            try {
+                List<Address> mResultLocation = g.getFromLocationName(address,1);
+                mLat = mResultLocation.get(0).getLatitude();
+                mLng = mResultLocation.get(0).getLongitude();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.d("GeoCoder", "주소변환 실패" + e);
+            }
+
+            mapView = findViewById(R.id.map_fragment);
+            mapView.getMapAsync(this);
+
+        }
         Button web_but = (Button) findViewById(R.id.web_but);
         web_but.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -296,10 +342,6 @@ public class PopupInformationActivity extends AppCompatActivity implements OnMap
             }
         }
         return 1;//즐찾에 강좌 추가
-    }
-
-    public void week_discrimination(String week){
-
     }
 
     public void Information_Close(View v){

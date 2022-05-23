@@ -21,12 +21,6 @@ public interface CourseDao {
     @Delete
     void setDeleteUser(Course course);
 
-    @Query("SELECT * FROM Course")
-    List<Course> getCouresAll();
-
-    @Query("SELECT * FROM Course WHERE lctreNm LIKE :title")
-    List<Course> test_select(String title);
-
     @Query("DELETE FROM Course")
     void AllDelete_Couresdb();
 

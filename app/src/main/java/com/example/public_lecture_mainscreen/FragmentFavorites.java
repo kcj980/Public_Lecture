@@ -1,8 +1,6 @@
 package com.example.public_lecture_mainscreen;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +13,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import java.util.List;
@@ -315,52 +312,52 @@ public class FragmentFavorites extends Fragment {
                 checkBox_favorite10.setChecked(false);
             }
         } catch (Exception e) {
-            Log.d("Test", "1");
+            Log.d("Test", "켈린더 체크부분 오류");
         }
 
         try{//버튼 색 유지
             if(favoritesList.get(0).getAlarm().equals("T")){
                 Button button = v.findViewById(R.id.AlarmCheck_btn1);
-                button.setBackgroundResource(R.drawable.white_button);
+                button.setBackgroundResource(R.drawable.green_button);
             }
             if(favoritesList.get(1).getAlarm().equals("T")){
                 Button button = v.findViewById(R.id.AlarmCheck_btn2);
-                button.setBackgroundResource(R.drawable.white_button);
+                button.setBackgroundResource(R.drawable.green_button);
             }
             if(favoritesList.get(2).getAlarm().equals("T")){
                 Button button = v.findViewById(R.id.AlarmCheck_btn3);
-                button.setBackgroundResource(R.drawable.white_button);
+                button.setBackgroundResource(R.drawable.green_button);
             }
             if(favoritesList.get(3).getAlarm().equals("T")){
                 Button button = v.findViewById(R.id.AlarmCheck_btn4);
-                button.setBackgroundResource(R.drawable.white_button);
+                button.setBackgroundResource(R.drawable.green_button);
             }
             if(favoritesList.get(4).getAlarm().equals("T")){
                 Button button = v.findViewById(R.id.AlarmCheck_btn5);
-                button.setBackgroundResource(R.drawable.white_button);
+                button.setBackgroundResource(R.drawable.green_button);
             }
             if(favoritesList.get(5).getAlarm().equals("T")){
                 Button button = v.findViewById(R.id.AlarmCheck_btn6);
-                button.setBackgroundResource(R.drawable.white_button);
+                button.setBackgroundResource(R.drawable.green_button);
             }
             if(favoritesList.get(6).getAlarm().equals("T")){
                 Button button = v.findViewById(R.id.AlarmCheck_btn7);
-                button.setBackgroundResource(R.drawable.white_button);
+                button.setBackgroundResource(R.drawable.green_button);
             }
             if(favoritesList.get(7).getAlarm().equals("T")){
                 Button button = v.findViewById(R.id.AlarmCheck_btn8);
-                button.setBackgroundResource(R.drawable.white_button);
+                button.setBackgroundResource(R.drawable.green_button);
             }
             if(favoritesList.get(8).getAlarm().equals("T")){
                 Button button = v.findViewById(R.id.AlarmCheck_btn9);
-                button.setBackgroundResource(R.drawable.white_button);
+                button.setBackgroundResource(R.drawable.green_button);
             }
             if(favoritesList.get(9).getAlarm().equals("T")){
                 Button button = v.findViewById(R.id.AlarmCheck_btn10);
-                button.setBackgroundResource(R.drawable.white_button);
+                button.setBackgroundResource(R.drawable.green_button);
             }
         }catch(Exception e){
-            Log.d("Test", "1");
+            Log.d("Test", "알람 버튼 색 유지 오류");
         }
             return v;
     }
@@ -370,6 +367,4 @@ public class FragmentFavorites extends Fragment {
         super.onDetach();
         mainActivity = null;
     }
-
-
 }

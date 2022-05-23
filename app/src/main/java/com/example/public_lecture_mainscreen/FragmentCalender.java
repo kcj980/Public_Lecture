@@ -184,11 +184,9 @@ public class FragmentCalender extends Fragment {
         MaterialCalendarView materialCalendarView = view.findViewById(R.id.calendarView);
         materialCalendarView.state().edit()
                 .setFirstDayOfWeek(Calendar.SUNDAY)
-//                .setMinimumDate(CalendarDay.from(2022, 0, 1))
                 .commit();
         materialCalendarView.addDecorators(new SaturdayDecorator(), new SundayDecorator(), new OneDayDecorator(),
                 new EventDecorator(Color.RED, dates));
-
 
         textView1.setText(fragString);
         textView2.setText(calendertext);

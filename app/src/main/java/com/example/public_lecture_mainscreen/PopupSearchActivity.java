@@ -55,7 +55,6 @@ public class PopupSearchActivity extends Activity{
         CheckBox checkBox_Euro = (CheckBox) findViewById(R.id.tuition1);
         CheckBox checkBox_Free = (CheckBox) findViewById(R.id.tuition2);
 
-
         //현재 설정 상태 가져오기(T면 체크한 상태로 보여짐
         List<Filter> filterinformation = ((MainActivity) MainActivity.context).mFilterDao.getFilterAll();//다른 액티비티에서 받아오는방법
         if(filterinformation.get(0).getGangwondo().equals("T")){
@@ -130,7 +129,6 @@ public class PopupSearchActivity extends Activity{
     //확인 버튼 클릭
     public void mOnClose(View v){
         Button closeBtn = (Button) findViewById(R.id.search_close_button);
-
         checkbox_save();
         ((MainActivity) MainActivity.context).LctreNm_search(closeBtn);
         //액티비티(팝업) 닫기
@@ -166,7 +164,6 @@ public class PopupSearchActivity extends Activity{
 
         CheckBox checkBox_Euro = (CheckBox) findViewById(R.id.tuition1);
         CheckBox checkBox_Free = (CheckBox) findViewById(R.id.tuition2);
-
 
         //현제 체크박스 정보 데이터베이스에 저장
         if(checkBox_Gangwondo.isChecked()){
@@ -255,8 +252,6 @@ public class PopupSearchActivity extends Activity{
             ((MainActivity) MainActivity.context).mFilterDao.Etc_F();
         }
 
-
-
         ((MainActivity) MainActivity.context).mFilterDao.Update_CourseStartDay((String) textView_stratDay.getText());
         ((MainActivity) MainActivity.context).mFilterDao.Update_CourseEndDay((String) textView_endDay.getText());
 
@@ -320,7 +315,6 @@ public class PopupSearchActivity extends Activity{
                     mDateSetListener, nYear, nMon, nDay);
             oDialog.show();
         }
-
         //강좌종료날짜 가져오기
         else if(view ==Ibtn_endDay){
             Calendar c = Calendar.getInstance();
@@ -350,7 +344,6 @@ public class PopupSearchActivity extends Activity{
             textView_endDay.setText("-");
         }
         else{}
-
     }
 
 }

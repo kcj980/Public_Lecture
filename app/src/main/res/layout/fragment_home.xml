@@ -90,7 +90,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundedrectangle_top"
-                android:onClick="lctClick1"
+                android:onClick="lctClick"
                 android:layout_marginTop="5dp"
                 android:visibility="gone"
                 android:textSize="27dp"
@@ -116,7 +116,7 @@
                 android:visibility="gone"
                 android:text=""
                 android:background="@drawable/roundedrectangle_top"
-                android:onClick="lctClick2"
+                android:onClick="lctClick"
                 android:textSize="27dp"
                 android:padding="5dp"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -140,7 +140,7 @@
                 android:visibility="gone"
                 android:text=""
                 android:background="@drawable/roundedrectangle_top"
-                android:onClick="lctClick3"
+                android:onClick="lctClick"
                 android:textSize="27dp"
                 android:padding="5dp"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -166,7 +166,7 @@
                 android:textSize="27dp"
                 android:padding="5dp"
                 android:background="@drawable/roundedrectangle_top"
-                android:onClick="lctClick4"
+                android:onClick="lctClick"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -190,7 +190,7 @@
                 android:textSize="27dp"
                 android:padding="5dp"
                 android:background="@drawable/roundedrectangle_top"
-                android:onClick="lctClick5"
+                android:onClick="lctClick"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -213,7 +213,7 @@
                 android:visibility="gone"
                 android:text=""
                 android:background="@drawable/roundedrectangle_top"
-                android:onClick="lctClick6"
+                android:onClick="lctClick"
                 android:textSize="27dp"
                 android:padding="5dp"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -238,7 +238,7 @@
                 android:visibility="gone"
                 android:text=""
                 android:background="@drawable/roundedrectangle_top"
-                android:onClick="lctClick7"
+                android:onClick="lctClick"
                 android:textSize="27dp"
                 android:padding="5dp"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -265,7 +265,7 @@
                 android:textSize="27dp"
                 android:padding="5dp"
                 android:background="@drawable/roundedrectangle_top"
-                android:onClick="lctClick8"
+                android:onClick="lctClick"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -290,7 +290,7 @@
                 android:textSize="27dp"
                 android:padding="5dp"
                 android:background="@drawable/roundedrectangle_top"
-                android:onClick="lctClick9"
+                android:onClick="lctClick"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -305,7 +305,6 @@
                 android:background="@drawable/roundedrectangle_bottom"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
             <TextView
                 android:id="@+id/lcturNm10"
                 android:layout_width="350dp"
@@ -315,7 +314,7 @@
                 android:textSize="27dp"
                 android:padding="5dp"
                 android:background="@drawable/roundedrectangle_top"
-                android:onClick="lctClick10"
+                android:onClick="lctClick"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -329,7 +328,6 @@
                 android:padding="5dp"
                 android:background="@drawable/roundedrectangle_bottom"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"

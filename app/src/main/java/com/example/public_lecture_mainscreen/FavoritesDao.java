@@ -57,20 +57,6 @@ public interface FavoritesDao {
 
     @Query("UPDATE Favorites SET monday = 'T', tuesday = 'T', wednesday = 'T', thursday = 'T', friday = 'T', saturday = 'T', Sunday = 'T' WHERE id = :id")
     void All_week(int id);
-    @Query("UPDATE Favorites SET monday = 'F' WHERE id = :id")
-    void All_week_1(int id);
-    @Query("UPDATE Favorites SET tuesday = 'F' WHERE id = :id")
-    void All_week_2(int id);
-    @Query("UPDATE Favorites SET wednesday = 'F' WHERE id = :id")
-    void All_week_3(int id);
-    @Query("UPDATE Favorites SET thursday = 'F' WHERE id = :id")
-    void All_week_4(int id);
-    @Query("UPDATE Favorites SET friday = 'F' WHERE id = :id")
-    void All_week_5(int id);
-    @Query("UPDATE Favorites SET saturday = 'F' WHERE id = :id")
-    void All_week_6(int id);
-    @Query("UPDATE Favorites SET Sunday = 'F' WHERE id = :id")
-    void All_week_7(int id);
 
     @Query("UPDATE Favorites SET calender = 'T' WHERE id = :id")
     void set_T(int id);

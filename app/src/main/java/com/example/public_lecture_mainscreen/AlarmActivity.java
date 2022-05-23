@@ -2,26 +2,17 @@ package com.example.public_lecture_mainscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
-import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -30,8 +21,6 @@ import java.util.List;
 
 
 public class AlarmActivity extends AppCompatActivity {
-    public static Context A_Activity;//다른 액티비티에 접근하는 방법
-
     private Button save, nowAlarmViewId;
     private TimePicker timePicker;
     //public AlarmManager alarmManager;
@@ -193,14 +182,10 @@ public class AlarmActivity extends AppCompatActivity {
                     alarm.setSunday("F");
                 }
                 ((MainActivity) MainActivity.context).mAlarmDao.setInsertAlarm(alarm);
-
-
                 ((MainActivity) MainActivity.context).mFavoritesDao.alarm_T(filterinformation.get(alarmCheckIndex).getId());
-
 
                 Toast.makeText(this,"알람이 저장되었습니다.",Toast.LENGTH_LONG).show();
                 finish();
-
 
             }
             else{
@@ -251,7 +236,6 @@ public class AlarmActivity extends AppCompatActivity {
                 int alarmUpdate_ID = alarmdatabase.get(alarmIndex).getId();
                 ((MainActivity) MainActivity.context).mAlarmDao.alarmUpdate_all((String) alarm_text1.getText(),(String) alarm_text2.getText(),(String) alarm_text3.getText(),hour,minute,
                         check_Mon, check_Tue, check_Wed, check_Thu, check_Fri, check_Sat, check_Sun,alarmUpdate_ID);
-
                 Toast.makeText(this,"알람이 수정되었습니다.",Toast.LENGTH_LONG).show();
                 finish();
             }
@@ -274,8 +258,7 @@ public class AlarmActivity extends AppCompatActivity {
                 alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                         AlarmManager.INTERVAL_DAY, alarmIntent);
             }
-
-            nowAlarmViewId.setBackgroundResource(R.drawable.white_button);
+            nowAlarmViewId.setBackgroundResource(R.drawable.green_button);
         });
     }
 

@@ -10,7 +10,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class ProgressDialog extends Activity {
+public class LoadingActivity extends Activity {
     Thread thread;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,6 @@ public class ProgressDialog extends Activity {
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_progress);
-
         thread = new Thread(){
             public void run(){
                 ((MainActivity) MainActivity.context).mCourseDao.AllDelete_Couresdb();
