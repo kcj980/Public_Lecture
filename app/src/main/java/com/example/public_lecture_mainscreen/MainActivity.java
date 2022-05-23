@@ -80,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
     private SimpleSQLiteQuery query;
     public List<Course> searchResult;
-    private Inflater inflater;
-    private int container;
 
 
 
