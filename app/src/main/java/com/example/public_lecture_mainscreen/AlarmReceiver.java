@@ -68,7 +68,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 return;
             else if(week[cal.get(Calendar.DAY_OF_WEEK)]){
                 final NotificationCompat.Builder notificationBuilder=new NotificationCompat.Builder(context,channelId)
-                        .setSmallIcon(R.mipmap.ic_launcher).setDefaults(Notification.DEFAULT_ALL)
+                        .setSmallIcon(R.drawable.a_book).setDefaults(Notification.DEFAULT_ALL)
                         .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                         .setAutoCancel(true)
                         .setContentTitle(alarm_lctreNm.get(0).getLctreNm())
