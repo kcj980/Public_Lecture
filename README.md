@@ -26,5 +26,5 @@
 - Naver Maps API
 
 ## 앱 화면
-![image](https://user-images.githubusercontent.com/97291618/215424379-84f49a0a-97e5-4215-917c-c595b2ba8871.png)
+![image](https://user-images.githubusercontent.com/97291618/215424456-67caa134-a100-481c-b5ea-b4010c2d8dfb.png)
 
