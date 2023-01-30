@@ -11,7 +11,7 @@
 
 ## 개발환경
  - Android Studio
-  - Android 10
+   -- Android 10
  - JSoup
  - Room Database
  - 공공강좌 Open API
