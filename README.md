@@ -24,3 +24,7 @@
 - Room Database
 - 공공강좌 Open API
 - Naver Maps API
+
+## 앱 화면
+![image](https://user-images.githubusercontent.com/97291618/215424379-84f49a0a-97e5-4215-917c-c595b2ba8871.png)
+
